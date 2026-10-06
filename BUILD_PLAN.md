@@ -2,9 +2,24 @@
 
 Updated: 6 October 2026.
 Working name: Accord.
-Status: selected build scope. Application code has not started.
+Status: product research in progress. Application code is blocked by the research gate.
 The assignment requirements are in ASSIGNMENT-CHECKLIST.md.
 This plan replaces the earlier proposal from 30 September.
+
+## Research gate
+
+Use Fathom end to end before application code starts. Complete every firsthand
+flow that the current account supports and save the evidence in research/.
+Record unavailable flows as limits instead of replacing them with assumptions.
+
+The remaining gate checks are the exact playback/transcript alignment, the
+in-call highlight behavior in the current Fathom experience, long-meeting and
+overlapping-speech navigation observations, and a complete screenshot set for
+the main flows and relevant errors. The eight-person, one-hour Fathom case is an
+explicit research limit because the user cannot arrange it. The public ICSI
+meeting is reference data for that case; it does not count as a live Fathom test.
+
+Do not start the build sequence below until this gate is closed.
 
 ## Product direction
 
@@ -71,7 +86,7 @@ of eight separate participants in Fathom.
 The public ICSI record supplies real demonstration data and the long transcript
 case. It does not prove that an eight-person call was tested in Fathom.
 Keep that research limit in the final notes. The user does not need to arrange
-another meeting before implementation starts.
+another meeting.
 
 ## Build sequence
 

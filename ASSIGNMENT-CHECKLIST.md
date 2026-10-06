@@ -84,15 +84,21 @@ meeting was tested. Keep these forms of evidence separate.
 Update after the user's recording constraint: a real public ICSI meeting is now
 saved with audio, the original transcript, structured transcript data, and
 source credit. Its metadata and timing were checked. This supplies the long
-data case and real data for the rebuild. It does not complete the live Fathom
-test. Continue the build with that known research limit; the user does not need
-to arrange eight participants.
+data case and real data for later rebuild tests. It does not complete the live
+Fathom test. Keep the eight-person Fathom case as a documented research limit;
+the user does not need to arrange eight participants.
+
+Do not start application code until every available firsthand research check
+above is complete or explicitly recorded as unavailable. Documentation and the
+public ICSI meeting can explain limits, but they do not replace a Fathom flow
+that can still be tested in the current account.
 
 ## Selected build order
 
 The brief requires product research, but does not require every researched feature
 to be implemented. The selected scope is now in BUILD_PLAN.md.
 Build the meeting review flow with visible actions and consistent task facts.
+Start this section only after the First task: use Fathom gate is closed.
 
 1. Build a populated meetings list and a complete meeting detail view.
 2. Connect playback, speaker turns, transcript search, and timestamp navigation.
