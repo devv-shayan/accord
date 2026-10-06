@@ -14,8 +14,8 @@ description: >
   design into SwiftUI and App Store screenshot panels. Use for "design my
   app", "iPhone app UI", "iOS app design", "make my app look premium", "this
   looks like AI made it", "redesign this screen", "App Store screenshots",
-  "mobile app mockup", "SwiftUI design", or any request for an iPhone app that
-  should look crafted by a professional designer.
+  "mobile app mockup", "SwiftUI design", or any request for an iPhone or web
+  app that should look crafted by a professional designer.
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep, AskUserQuestion, Agent
 ---
 
@@ -36,6 +36,10 @@ decisions on purpose and proving on the rendered screen that you made them.
 signature), a three-direction exploration, high-fidelity screens and the app
 icon rendered at 3x, a clean slop scan, a scored critique per round, and, when
 asked, SwiftUI code and App Store panels.
+
+For web apps, apply the design process to responsive browser screens and use
+the project's web stack and preview tools. Skip iPhone device frames, iOS 26,
+Liquid Glass, SwiftUI, and App Store steps unless the user asks for them.
 
 `<skill>` below means this skill's folder, normally
 `~/.claude/skills/app-designer`.
