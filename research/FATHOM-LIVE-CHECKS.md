@@ -161,8 +161,9 @@ Evidence file: [Signed-out clip](screenshots/clip-signed-out.jpg).
 
 - Compare audible playback with exact words and timestamps if capture fidelity
   must be separated from transcription accuracy.
-- Inspect an eight-person, one-hour recording. Neither available record meets
-  that requirement.
+- Inspect Fathom output for an eight-person, one-hour recording. Neither record
+  in this Fathom account meets that requirement. The user cannot arrange this
+  call. Record the limit and use the public ICSI Bmr007 data for rebuild tests.
 - Record limits from long transcripts, overlapping speech, and long-call navigation.
 - Check an in-call marked moment if the current account exposes that function.
   An after-call highlight does not complete that test.
@@ -183,5 +184,8 @@ Evidence file: [Signed-out clip](screenshots/clip-signed-out.jpg).
 8. Add review of uncertain facts after the complete Fathom flow works.
 
 The focused help-centre review is complete. Further article reading can address
-specific unanswered checks. Application code remains subject to the research
-gate in ASSIGNMENT-CHECKLIST.md.
+specific unanswered checks. The user's later constraint is recorded in
+ASSIGNMENT-CHECKLIST.md. Public ICSI Bmr007 audio and its transcript now supply
+real eight-speaker data for a one-hour build test. Attribution and data limits
+are in data/ICSI-ATTRIBUTION.md. This does not establish live Fathom behavior.
+Continue with the known research limit instead of requiring a new call.

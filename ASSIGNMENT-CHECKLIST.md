@@ -7,7 +7,9 @@ Local deadline: 7 October 2026, 17:15 Pakistan time.
 The brief says the clock is tracked but not enforced. Use the deadline as the delivery target.
 
 This checklist takes precedence over the proposed scope in BUILD_PLAN.md.
-Product research must finish before application code starts.
+Review the available product research and record its limits before application
+code starts. An unavailable recording is a documented research limit, not a
+requirement for the user to arrange a new meeting.
 
 ## Capture gate
 
@@ -38,7 +40,8 @@ Do not mark a flow as tested from documentation alone.
 - [x] Search across more than one meeting. Web title search returns both recordings. Transcript search for Cedar returned no matches; that limit is recorded.
 - [x] Test Ask Fathom across both meetings and inspect a source link. The answer separates the meetings but repeats incorrect task details.
 - [x] Create a clip and test access for a person outside the meeting. The clip opens and its player starts in a separate signed-out browser. No message was sent.
-- [ ] Inspect an eight-person, one-hour meeting.
+- [ ] Inspect Fathom output from an eight-person, one-hour meeting. No suitable record is available in this Fathom account. The user cannot arrange this call; report the limit.
+- [x] Obtain a real public eight-speaker, one-hour record for reference and rebuild tests. ICSI Bmr007: 60:03.4 audio, eight speakers, and 2,557 transcript segments. Source and license are in research/data/ICSI-ATTRIBUTION.md.
 - [ ] Record problems with long transcripts, overlapping speech, and navigation.
 - [x] Record problems in the short meeting flows, including incorrect text, inconsistent task details, and contradictory processing states.
 - [x] Review all 37 supplied screenshots and save an image-by-image research record.
@@ -77,6 +80,13 @@ Calendar authorization and meeting participation require the user's account.
 The user must select the recipient before any clip is sent to another person.
 A documented or simulated long meeting does not prove that a real eight-person
 meeting was tested. Keep these forms of evidence separate.
+
+Update after the user's recording constraint: a real public ICSI meeting is now
+saved with audio, the original transcript, structured transcript data, and
+source credit. Its metadata and timing were checked. This supplies the long
+data case and real data for the rebuild. It does not complete the live Fathom
+test. Continue the build with that known research limit; the user does not need
+to arrange eight participants.
 
 ## Proposed build order after research
 
