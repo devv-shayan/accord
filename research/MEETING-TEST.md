@@ -33,7 +33,7 @@ Create a highlight from the transcript after the call if available.
 | Launch | Friday, 9 October is conditional on written approval by Thursday, 8 October, 17:00 Pakistan time. No confirmed Friday or Monday launch. |
 | Checklist | Sara owns it. Final deadline: Thursday, 8 October, 11:00 Pakistan time. Ben and the Wednesday deadline are replaced. |
 | Retry bug | Omar will fix it and test three failed attempts by Wednesday, 7 October, 16:00 Pakistan time. |
-| Customer call | Ben will call Imani at Wednesday, 7 October, 10:00 Pakistan time to clarify clip or full-meeting access. |
+| Customer call | Ben will call Imani on Wednesday, 7 October, at 10:00 Pakistan time to clarify clip or full-meeting access. |
 | Security request | Maya will request written approval. No deadline is stated for her request. |
 | Budget | USD 15,000 cap; includes hosting and transcription; excludes taxes. USD 1,500 is corrected. |
 | Closed work | The note-export bug is fixed. No new repair task. |
