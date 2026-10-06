@@ -88,28 +88,32 @@ data case and real data for the rebuild. It does not complete the live Fathom
 test. Continue the build with that known research limit; the user does not need
 to arrange eight participants.
 
-## Proposed build order after research
+## Selected build order
 
 The brief requires product research, but does not require every researched feature
-to be implemented. Select the final scope after the research.
+to be implemented. The selected scope is now in BUILD_PLAN.md.
+Build the meeting review flow with visible actions and consistent task facts.
 
 1. Build a populated meetings list and a complete meeting detail view.
 2. Connect playback, speaker turns, transcript search, and timestamp navigation.
-3. Add summary templates, action items, and copy or export controls.
-4. Add search across meetings, saved moments, and a clip link with public playback.
-5. Add persistent records, clear loading and failure states, and responsive layouts.
-6. Add real transcription and summary generation if they fit the remaining time.
-7. Add the Accord review step only after the main Fathom flows work.
+3. Prove real AI draft generation from a saved transcript; validate and save the result.
+4. Add summary templates, visible action review, and copy or export controls. Use one saved set of task facts across these views.
+5. Add search across meetings, saved moments, and a clip link with public playback.
+6. Check persistent records, visitor separation, clear loading and failure states, and responsive layouts.
+7. Complete the deployment, public repository, README, and both videos.
 
 Use a simulated bot or prerecorded capture layer for the first complete flow.
 Label that choice in the interface, README, and walkthrough.
 Do not claim that calendar synchronization or a live bot works if it is simulated.
 Keep the existing proposed stack until a concrete integration problem requires a change.
 Verify provider access before making the build depend on it.
+New audio transcription, live capture, calendar synchronization, integrations,
+and team administration are outside the first release. Single-meeting AI
+questions are optional after the main release checks pass.
 
 ## Changes to the earlier plan
 
-- Move browser audio capture and recording recovery below the meeting review flow.
+- Exclude browser audio capture and recording recovery from the first release.
   The brief expressly permits a simulated capture layer.
 - Give summary templates, saved moments, and clip sharing higher priority.
 - Keep search across meetings distinct from conversational AI search.
@@ -118,8 +122,8 @@ Verify provider access before making the build depend on it.
   The earlier 30-minute proposal does not cover this case.
 - Use real meeting data for the public demonstration. A fictional sample alone
   does not satisfy the brief. Use data that can be shared publicly.
-- Preserve the review improvement, but first make the product recognizable as
-  a Fathom rebuild.
+- Use a small action review step inside a recognizable Fathom meeting view.
+  Defer the earlier plan's full approval and transcript revision system.
 
 ## Required delivery
 
@@ -139,6 +143,8 @@ Do not submit the assignment until the user has reviewed the final materials.
 - [ ] A signed-out visitor can open the deployed application and its sample meetings.
 - [ ] Playback and transcript timestamps agree.
 - [ ] Summary template changes produce the expected content.
+- [ ] One real AI draft run completes from a saved transcript.
+- [ ] Task facts agree across templates and exports; conditions and missing details remain clear.
 - [ ] Search returns relevant results across several meetings.
 - [ ] A clip link opens in a separate signed-out browser session.
 - [ ] The one-hour meeting remains easy to navigate.
