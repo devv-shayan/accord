@@ -1,0 +1,13 @@
+Maya: This is the Maple support handover for Tuesday, October sixth, twenty twenty-six. All times are Pakistan time. This is a separate meeting from the Cedar pilot review.
+
+Ben: Maple cannot find its invoice export. This is a Maple customer problem. It is not the closed Cedar note-export bug.
+
+Omar: I will inspect the Maple invoice export by Thursday, October eighth, at three PM. I will report the cause before I promise a fix.
+
+Sara: I will send Ben the Maple help-page draft on Friday, October ninth, at noon. This task does not change my Cedar checklist deadline.
+
+Maya: We approve a separate Maple support budget cap of two thousand US dollars. The Cedar pilot budget remains fifteen thousand US dollars.
+
+Ben: The customer asked for support in Spanish. We have not approved that request. It remains an open question, with no assigned owner.
+
+Maya: Agreed. That ends the Maple support handover.
