@@ -93,7 +93,8 @@ Sources: [Sharing Call Recordings](https://help.fathom.video/en/articles/295616)
 
 Build implication: show the clip start and end, provide a public playback route,
 and verify it while signed out. Creating a share link and sending it are
-different actions. The outside-access test remains incomplete.
+different actions. The later live check verified clip access while signed out.
+See FATHOM-LIVE-CHECKS.md.
 
 ### Meeting library and search
 
@@ -106,7 +107,8 @@ Sources: [Finding calls](https://help.fathom.video/en/articles/7573185);
 [Account-Wide Ask Fathom](https://help.fathom.video/en/articles/10390017).
 
 Build implication: distinguish ordinary search from a generated answer across
-meetings. First verify Cedar, retry bug, and invoice export in the web library.
+meetings. The later live check verified web title search and an answer across
+both records. Cedar returned no transcript matches in the web library.
 The desktop roadmap does not prove ordinary desktop search is available now.
 
 ### Integrations and limits
@@ -127,17 +129,19 @@ Build implication: understand where outputs go, then complete the main meeting
 flow before adding CRM or task-manager connections. These integrations are not
 established requirements in the supplied brief.
 
-## Remaining firsthand checks
+## Firsthand check status
 
-1. Compare Fathom playback with the transcript, names, and timestamps.
-2. Select a different summary template and compare the final result.
-3. Save a highlight through the available interface, then find it again.
-4. Search across Cedar and Maple in the web app.
-5. Open a clip link while signed out and check its playback range.
-6. Inspect the eight-person, one-hour case and record navigation and speech limits.
+The live product checks are recorded in FATHOM-LIVE-CHECKS.md.
 
-These checks remain open. Documentation explains how to attempt them; it does
-not replace evidence from using the product.
+- Completed: a template change, a saved highlight after reload, title search
+  across both records, Ask Fathom with a source link, and signed-out clip playback.
+- Partial: playback controls and transcript navigation work. Exact audible
+  alignment remains unverified. Transcript search across meetings did not find Cedar.
+- Open: the eight-person, one-hour case, long-call limits, and an in-call moment
+  if the account supports it.
+
+Documentation explains how to attempt a check. It does not replace evidence
+from using the product.
 
 ## Proposed first build
 

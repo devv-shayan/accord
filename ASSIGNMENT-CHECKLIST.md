@@ -29,13 +29,15 @@ Do not mark a flow as tested from documentation alone.
 - [x] Check the available recording experience in the controlled Zoom meetings.
 - [ ] Record a moment during the call, if the account supports that function.
 - [ ] Compare playback with speaker names, timestamps, and transcript text.
+- [x] Check player controls and transcript navigation. Cedar playback starts; a transcript paragraph moves playback to 4:04. Exact audible alignment remains unverified.
 - [x] Compare the source script with the Fathom transcript and summary. The user confirms that the source audio speaks the script correctly.
 - [x] Read the AI summaries for Cedar and Maple.
-- [ ] Change the summary template and compare the final output.
+- [x] Change the summary template and compare the final output. Cedar changed from Enhanced to Project Update, generated new content, then returned to Enhanced.
 - [x] Find and use the Action Items view for Cedar and Maple.
-- [ ] Find a marked moment after the call.
-- [ ] Search across more than one meeting.
-- [ ] Create a clip and test access for a person outside the meeting.
+- [x] Find a marked moment after the call. A web highlight remains in Annotations after reload.
+- [x] Search across more than one meeting. Web title search returns both recordings. Transcript search for Cedar returned no matches; that limit is recorded.
+- [x] Test Ask Fathom across both meetings and inspect a source link. The answer separates the meetings but repeats incorrect task details.
+- [x] Create a clip and test access for a person outside the meeting. The clip opens and its player starts in a separate signed-out browser. No message was sent.
 - [ ] Inspect an eight-person, one-hour meeting.
 - [ ] Record problems with long transcripts, overlapping speech, and navigation.
 - [x] Record problems in the short meeting flows, including incorrect text, inconsistent task details, and contradictory processing states.
@@ -43,12 +45,14 @@ Do not mark a flow as tested from documentation alone.
 - [x] Review the seven requested help-centre categories and 19 relevant articles. See research/FATHOM-HELP-CONTEXT.md.
 - [ ] Save a screenshot for each main flow and its relevant errors.
 
-Research updated: 6 October 2026. See research/FATHOM-OBSERVATIONS.md.
+Research updated: 6 October 2026. See research/FATHOM-OBSERVATIONS.md
+and research/FATHOM-LIVE-CHECKS.md.
 The supplied screenshots cover account setup, capture settings, recording output,
 meeting lists, transcripts, summaries, action items, and processing states.
 The research record is saved in this repository. The original screenshots remain
 in the supplied local files; a complete screenshot set for all required flows
-has not been saved in research/.
+has not been saved in research/. A signed-out clip screenshot is saved in
+research/screenshots/clip-signed-out.jpg.
 
 The controlled meetings have one Zoom participant. They complete the short-call
 research check. They do not verify separate participant identification or establish
@@ -56,11 +60,10 @@ the real meeting data needed for the public demonstration.
 The user confirms the original TTS audio is correct. Playback alignment with the
 Fathom recording remains a separate check.
 
-The visible Enhanced Summary label does not prove a template change.
-Selected transcript text does not prove that a highlight was saved.
-Two meeting cards and suggested questions do not prove search across meetings.
-The Share control does not prove outside access to a clip.
-Task assignment and completion changes were not shown in the screenshots.
+Direct app checks now establish a completed template change, a saved highlight,
+title search across both records, an Ask Fathom answer with a source link,
+and signed-out clip access. These findings have separate limits in the live
+research record. Task assignment and completion changes remain untested.
 The help-centre review is reference research. It does not complete the remaining
 product tests. Some articles describe the older experience; some describe
 Fathom 3.0. Verify the feature in the correct web or desktop interface.

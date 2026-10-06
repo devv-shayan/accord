@@ -123,7 +123,7 @@ Numbers refer to the image labels in the user's message.
 | 36 | Microphone, accessibility, and screen and system audio permission requests. |
 | 37 | Desktop and Fathom application icon. No active application result is visible. |
 
-## Remaining research
+## Limits of the screenshot evidence
 
 The screenshots do not verify these outcomes:
 
@@ -139,3 +139,8 @@ The user has confirmed the original TTS speech. Compare it with the Fathom
 recording only if the distinction between capture and transcription is needed.
 Then finish the template, saved-moment, search, and clip checks.
 Keep this controlled test separate from the real meeting data required for delivery.
+
+Update from direct app use: FATHOM-LIVE-CHECKS.md records the completed template
+change, saved highlight, meeting-title search, Ask Fathom source reference,
+and signed-out clip playback. The screenshot limits above remain valid for the
+original image set. Exact audible alignment and the long meeting remain open.
