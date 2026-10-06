@@ -7,7 +7,7 @@ import subprocess
 import sys
 import datetime as dt
 
-from agent_capture import messages, write_log
+from agent_capture import messages, write_log, utc
 
 root = Path(__file__).resolve().parents[1]
 config = json.loads((root / "agent-capture.json").read_text())
@@ -22,7 +22,12 @@ with (runtime / "hook-events.jsonl").open("a", encoding="utf-8") as audit:
 transcript = event.get("transcript_path")
 if transcript and Path(transcript).is_file():
     meta, entries = messages(Path(transcript), Path(config["session_store"]).expanduser().parent / "attachments")
-    write_log(root, config["author"], meta, entries)
+    cwd = Path(meta.get("cwd", "/"))
+    source = meta.get("source")
+    if (cwd.is_absolute() and (cwd.resolve() == root or root in cwd.resolve().parents)
+            and utc(meta["timestamp"]) >= config["capture_start_utc"]
+            and not (isinstance(source, dict) and "subagent" in source)):
+        write_log(root, config["author"], meta, entries)
 
 # The prompt hook can run before its transcript line is written. The watcher
 # exports it as soon as Codex persists it. It also captures this setup turn.
