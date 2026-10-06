@@ -40,6 +40,7 @@ Do not mark a flow as tested from documentation alone.
 - [ ] Record problems with long transcripts, overlapping speech, and navigation.
 - [x] Record problems in the short meeting flows, including incorrect text, inconsistent task details, and contradictory processing states.
 - [x] Review all 37 supplied screenshots and save an image-by-image research record.
+- [x] Review the seven requested help-centre categories and 19 relevant articles. See research/FATHOM-HELP-CONTEXT.md.
 - [ ] Save a screenshot for each main flow and its relevant errors.
 
 Research updated: 6 October 2026. See research/FATHOM-OBSERVATIONS.md.
@@ -60,6 +61,9 @@ Selected transcript text does not prove that a highlight was saved.
 Two meeting cards and suggested questions do not prove search across meetings.
 The Share control does not prove outside access to a clip.
 Task assignment and completion changes were not shown in the screenshots.
+The help-centre review is reference research. It does not complete the remaining
+product tests. Some articles describe the older experience; some describe
+Fathom 3.0. Verify the feature in the correct web or desktop interface.
 
 The current Fathom documentation says that in-call highlights are available
 in the previous experience. The new experience supports adding them after a call.
