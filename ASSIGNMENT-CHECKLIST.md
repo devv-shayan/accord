@@ -15,7 +15,7 @@ Product research must finish before application code starts.
 - [x] Two separate test sessions passed. See CAPTURE-TEST.md.
 - [x] Capture logs are included in Git.
 - [x] The capture status has a recent scan and no error.
-- [ ] Include new capture entries with each related commit.
+- [x] Include capture entries with the completed research commits. Continue with each new commit.
 
 ## First task: use Fathom
 
@@ -23,20 +23,43 @@ Use the free plan. Save screenshots and notes in research/.
 Record what was tested, what happened, and what was unavailable.
 Do not mark a flow as tested from documentation alone.
 
-- [ ] Sign up and complete onboarding.
-- [ ] Connect a calendar.
-- [ ] Run a real two-minute meeting on Zoom, Meet, or Teams.
-- [ ] Check the notetaker or available recording experience in that meeting.
+- [x] Sign up and complete onboarding.
+- [x] Connect a calendar. Fathom recognizes the scheduled calendar test call in image 17.
+- [x] Run a real Zoom call of at least two minutes. Cedar recording: 5:48. Maple recording: 1:03. Both used controlled TTS audio.
+- [x] Check the available recording experience in the controlled Zoom meetings.
 - [ ] Record a moment during the call, if the account supports that function.
 - [ ] Compare playback with speaker names, timestamps, and transcript text.
-- [ ] Read the AI summary and change its template.
-- [ ] Find and use the action items.
+- [x] Compare the source script with the Fathom transcript and summary. The user confirms that the source audio speaks the script correctly.
+- [x] Read the AI summaries for Cedar and Maple.
+- [ ] Change the summary template and compare the final output.
+- [x] Find and use the Action Items view for Cedar and Maple.
 - [ ] Find a marked moment after the call.
 - [ ] Search across more than one meeting.
 - [ ] Create a clip and test access for a person outside the meeting.
 - [ ] Inspect an eight-person, one-hour meeting.
 - [ ] Record problems with long transcripts, overlapping speech, and navigation.
+- [x] Record problems in the short meeting flows, including incorrect text, inconsistent task details, and contradictory processing states.
+- [x] Review all 37 supplied screenshots and save an image-by-image research record.
 - [ ] Save a screenshot for each main flow and its relevant errors.
+
+Research updated: 6 October 2026. See research/FATHOM-OBSERVATIONS.md.
+The supplied screenshots cover account setup, capture settings, recording output,
+meeting lists, transcripts, summaries, action items, and processing states.
+The research record is saved in this repository. The original screenshots remain
+in the supplied local files; a complete screenshot set for all required flows
+has not been saved in research/.
+
+The controlled meetings have one Zoom participant. They complete the short-call
+research check. They do not verify separate participant identification or establish
+the real meeting data needed for the public demonstration.
+The user confirms the original TTS audio is correct. Playback alignment with the
+Fathom recording remains a separate check.
+
+The visible Enhanced Summary label does not prove a template change.
+Selected transcript text does not prove that a highlight was saved.
+Two meeting cards and suggested questions do not prove search across meetings.
+The Share control does not prove outside access to a clip.
+Task assignment and completion changes were not shown in the screenshots.
 
 The current Fathom documentation says that in-call highlights are available
 in the previous experience. The new experience supports adding them after a call.
