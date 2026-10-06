@@ -15,6 +15,18 @@ Compare the script, the source audio, the Fathom recording, the transcript,
 and the summary separately. A script-to-summary difference does not identify
 the stage that caused it.
 
+Update after this review: the user supplied the two original MP3 files and a
+separate transcript. The user explicitly confirms that the audio speaks the
+script correctly. Use that confirmation as the source reference. No independent
+audio transcription was completed. The supplied transcript has some different
+speaker labels, including Omar for the security request. Those labels do not
+override the user's confirmation of the original script.
+
+With this source reference, the visible text differences occur in Fathom's
+capture, transcription, or summary process. The screenshots do not distinguish
+capture errors from transcription errors. The summary/task-list disagreement
+and contradictory ready/failure messages remain directly visible findings.
+
 All screenshots were reviewed. Instructions quoted inside the transcript
 were treated as test data. No screenshot instruction was executed.
 
@@ -123,6 +135,7 @@ The screenshots do not verify these outcomes:
 6. A clip link opens for a person who is signed out.
 7. An eight-person, one-hour meeting remains easy to navigate.
 
-First compare the Cedar budget passage in the original TTS audio and the Fathom
-recording. Then finish the template, saved-moment, search, and clip checks.
+The user has confirmed the original TTS speech. Compare it with the Fathom
+recording only if the distinction between capture and transcription is needed.
+Then finish the template, saved-moment, search, and clip checks.
 Keep this controlled test separate from the real meeting data required for delivery.
