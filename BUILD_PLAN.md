@@ -1,25 +1,23 @@
 # 8x build plan
 
-Updated: 6 October 2026.
+Updated: 8 October 2026.
 Working name: Accord.
-Status: product research in progress. Application code is blocked by the research gate.
+Status: core review and local Google Meet capture are implemented and tested.
+Private cloud storage is configured and tested. Google OAuth client setup and
+local credentials are complete. Live sign-in, calendar loading, disconnection,
+and same-account reconnection passed.
 The assignment requirements are in ASSIGNMENT-CHECKLIST.md.
 This plan replaces the earlier proposal from 30 September.
 
 ## Research gate
 
-Use Fathom end to end before application code starts. Complete every firsthand
-flow that the current account supports and save the evidence in research/.
-Record unavailable flows as limits instead of replacing them with assumptions.
-
-The remaining gate checks are the exact playback/transcript alignment, the
-in-call highlight behavior in the current Fathom experience, long-meeting and
-overlapping-speech navigation observations, and a complete screenshot set for
-the main flows and relevant errors. The eight-person, one-hour Fathom case is an
-explicit research limit because the user cannot arrange it. The public ICSI
-meeting is reference data for that case; it does not count as a live Fathom test.
-
-Do not start the build sequence below until this gate is closed.
+The research gate is closed. ASSIGNMENT-CHECKLIST.md records the completed
+firsthand checks and the unavailable flows. Evidence is saved in research/.
+Exact short-call word alignment, separate participant identification, and the
+current Fathom in-call highlight flow have recorded limits. The eight-person,
+one-hour Fathom case remains an explicit research limit because the user cannot
+arrange it. The public ICSI meeting is reference data for that case; it does not
+count as a live Fathom test.
 
 ## Product direction
 
@@ -47,15 +45,18 @@ Better extraction accuracy remains a test result to establish.
 | Meeting detail | Use a familiar Fathom layout with playback, transcript, summary, and visible actions. Support a narrow screen and keyboard use. |
 | Playback and transcript | Play real audio. Select a timestamp to seek. Search within a transcript and filter by speaker. Navigate the one-hour meeting without rendering every row at once. |
 | AI notes | Generate a structured draft from a saved transcript with the selected Gemini provider. Check service access before this work depends on it. Save and validate the result. |
-| Summary templates | Provide a small set of views, such as overview, project update, and action focus. Reuse the same saved facts when the view changes. A template change must not silently assign a new owner or deadline. |
+| Summary templates | Outcome and Brief use separate Gemini prompts and save separate results with source links. Tasks appear in Action items. A format change must not silently change a reviewed task. |
 | Action review | Show supported owners and dates, conditions, missing details, and a source link. Accept, edit, or dismiss a draft item. Keep review state separate from task completion. |
 | Saved moments | Select a time range, save a highlight, reopen it, and play that range. |
 | Clip sharing | Create a public link to a saved range. A signed-out visitor can open it and play the bounded clip. |
 | Notes export | Copy or download notes from the current reviewed records. Preserve conditions and open questions. |
 | Saved state | Preserve edits, highlights, and task states after refresh. Keep each visitor's sample changes separate. Show clear loading, empty, and failure states. |
 
-The AI source is the saved transcript. This release does not promise new audio
-transcription. Existing transcripts must be labelled as supplied transcripts.
+New Google Meet recordings now produce transcripts from their audio. Gemini
+then generates notes and action items from those transcripts. A real local
+Chrome capture passed. Private cloud persistence passed a live upload and worker
+test. Google sign-in also passed with a real account on 8 October.
+Existing transcripts must be labelled as supplied transcripts.
 Prepared notes must be labelled as saved results. Only a completed provider call
 can be described as live generation. Public sample playback and review must work
 without a login or a paid AI call from each visitor.
@@ -67,10 +68,42 @@ there is source support or a clear user edit.
 
 ## Capture choice
 
-Use a labelled prerecorded or simulated capture layer. The brief permits this.
-Explain it in the app, README, and walkthrough.
-The recording bot and calendar connection are outside the first release.
-Do not show a simulated provider result as a completed live call.
+The user selected Google Meet on the web, in desktop Chrome. The capture layer
+is a Manifest V3 extension. The web app provides account setup, calendar calls,
+processing progress, and meeting review. No native app or meeting bot is required.
+
+1. Connect Google and allow calendar event read access. Add Accord Meet to Chrome
+   and approve the Accord origin. Local tests use a clearly labelled local account.
+2. Join a Meet call. The extension detects a joined call and offers recording
+   controls. The person clicks Start recording in the Chrome toolbar.
+3. Capture Meet tab audio and optional microphone audio. Show the timer, pause,
+   resume, microphone control, marked moments, and Stop and save.
+4. Save audio in IndexedDB before upload. Retry durable parts after a failed
+   upload. Keep a local backup. Closing the popup does not stop capture.
+5. Normalize the audio with FFmpeg, transcribe it with Gemini, and generate
+   notes and actions. Use approximate audio times and neutral AI voice labels.
+6. Open the private meeting. Its transcript is searchable. Reuse Saved moments
+   and Shared clips. A shared recording clip contains only the cropped range.
+
+A real solo Chrome Meet call produced 4:44 of saved audio, 20 transcript passages,
+three actions, and four in-call marks. Outcome and Brief have separate saved
+results. Source playback and a separate 30-second shared clip were tested.
+See research/CAPTURE-VERIFICATION.md for the evidence and remaining limits.
+
+Chrome requires a person to invoke capture. A detected call does not start it
+silently. Accord's microphone control is separate from Meet's mute state.
+Reference: https://developer.chrome.com/docs/extensions/reference/api/tabCapture.
+
+Google OAuth, calendar loading, and private Supabase storage are implemented.
+The dedicated Accord Supabase project has its schema and private audio bucket.
+Live checks passed for cloud upload, separate worker processing, durable edits,
+private playback, clips, and account separation. Live Google consent, calendar
+loading, disconnection, and same-account reconnection passed on 8 October.
+See research/INTEGRATIONS-VERIFICATION.md.
+Long jobs on hosts with short request limits need the persistent recording worker.
+Actual denied permissions, separate live tab and microphone sources, a browser
+restart during failed upload, and an hour-long capture remain browser checks.
+The extension harness covers pause and upload retry with mocked interfaces.
 
 ## Data and evidence
 
@@ -90,6 +123,10 @@ another meeting.
 
 ## Build sequence
 
+The core review stages and local capture flow are implemented and checked.
+Test populated calendar calls and access-token expiry refresh. Public
+delivery and MCP access remain incomplete.
+
 1. Build and deploy the populated library and meeting detail view.
 2. Complete playback, transcript search, speaker filtering, and time navigation.
 3. Prove one real transcript-to-draft AI call. Validate and save the result.
@@ -104,15 +141,16 @@ recording limits, or processing promises from the replaced plan.
 
 ## Excluded from the first release
 
-- A bot that joins Zoom, Google Meet, or Teams.
-- Calendar synchronization and automatic meeting attendance.
-- Live transcription, new audio transcription, and speaker identification.
-- Browser microphone capture, screen capture, and video recording.
+- A bot that joins a meeting.
+- Capture for any meeting platform other than Google Meet on the web.
+- Calendar writes and automatic meeting attendance.
+- Real-time transcription and automatic identification of people by voice.
 - Native desktop and mobile apps.
 - CRM and task integrations, automatic follow-up emails, and email delivery.
 - Team workspaces, organization controls, billing, and subscriptions.
 - A general personal-file upload service and its full account workflow.
-- A large approval history, transcript revision system, or background job platform.
+- A large approval history, transcript revision system, or general job platform.
+  The recording worker is limited to capture processing.
 - Conversational AI search across all meetings.
 
 Single-meeting questions with source links are the first optional addition.

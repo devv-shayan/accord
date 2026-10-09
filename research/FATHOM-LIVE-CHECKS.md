@@ -157,18 +157,25 @@ browser. The user must select a recipient before a message is sent.
 
 Evidence file: [Signed-out clip](screenshots/clip-signed-out.jpg).
 
-## Remaining research
+## Research gate status
 
-- Compare audible playback with exact words and timestamps if capture fidelity
-  must be separated from transcription accuracy.
-- Inspect Fathom output for an eight-person, one-hour recording. Neither record
-  in this Fathom account meets that requirement. The user cannot arrange this
-  call. Record the limit and use the public ICSI Bmr007 data for rebuild tests.
-- Record limits from long transcripts, overlapping speech, and long-call navigation.
-- Check an in-call marked moment if the current account exposes that function.
-  An after-call highlight does not complete that test.
-- Save the complete screenshot set for all main research flows.
-- Check task assignment and completion changes if those actions enter the build scope.
+The research gate is closed for the first release.
+
+- Exact audible word alignment remains unavailable with the current interface.
+  Transcript-to-time navigation is verified; the audible comparison is reported
+  as a limit rather than inferred.
+- No eight-person, one-hour Fathom record is available in this account. The user
+  cannot arrange one. The public ICSI Bmr007 record is used only for rebuild
+  tests and is not presented as a Fathom result.
+- Long transcript, overlap, and navigation requirements are recorded in
+  LONG-MEETING-NOTES.md from the ICSI source data.
+- The current account did not expose a verified in-call highlight flow. The
+  after-call highlight flow is verified and the in-call case is recorded as
+  unavailable.
+- Representative screenshots for the main researched flows and relevant error
+  states are saved in research/screenshots/.
+- Task assignment and completion changes remain outside the selected first
+  release unless that scope changes.
 
 ## Build decisions supported by these checks
 
