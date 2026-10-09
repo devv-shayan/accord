@@ -12,6 +12,30 @@ import sys
 import time
 
 
+def local_session_ids(root, key):
+    """Read local capture settings on each scan."""
+    config_path = root / ".agent-capture" / "settings.json"
+    if not config_path.exists():
+        return set()
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    session_ids = config.get(key, [])
+    if not isinstance(session_ids, list) or any(
+        not isinstance(value, str) or not re.fullmatch(r"[A-Za-z0-9_-]+", value)
+        for value in session_ids
+    ):
+        raise ValueError("Invalid session IDs in " + key)
+    return set(session_ids)
+
+
+def excluded_session_ids(root):
+    return local_session_ids(root, "excluded_session_ids")
+
+
+def included_session_ids(root):
+    """Allow named project sessions that started before capture was installed."""
+    return local_session_ids(root, "included_session_ids")
+
+
 def utc(value):
     return dt.datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(
         dt.timezone.utc
@@ -109,6 +133,8 @@ def write_log(root, author, meta, entries):
     locks.mkdir(parents=True, exist_ok=True)
     with (locks / (session_id + ".lock")).open("a") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
+        if session_id in excluded_session_ids(root):
+            return None
         return _write_log(root, author, meta, entries)
 
 
@@ -165,9 +191,12 @@ def _write_log(root, author, meta, entries):
 
 def scan(root, sessions, author, cache, start_utc=None):
     exported = 0
+    excluded = excluded_session_ids(root)
+    included = included_session_ids(root)
+    policy = (tuple(sorted(excluded)), tuple(sorted(included)))
     for path in sessions.rglob("rollout-*.jsonl"):
         stat = path.stat()
-        signature = (stat.st_mtime_ns, stat.st_size)
+        signature = (stat.st_mtime_ns, stat.st_size, policy)
         if cache.get(str(path)) == signature:
             continue
         with path.open(encoding="utf-8") as stream:
@@ -175,8 +204,14 @@ def scan(root, sessions, author, cache, start_utc=None):
         if not first.endswith("\n"):
             continue
         metadata = json.loads(first).get("payload", {})
+        if metadata.get("id") in excluded:
+            cache[str(path)] = signature
+            continue
         raw_cwd = Path(metadata.get("cwd", "/"))
-        if not raw_cwd.is_absolute() or (start_utc and utc(metadata["timestamp"]) < start_utc):
+        if not raw_cwd.is_absolute() or (
+            start_utc and utc(metadata["timestamp"]) < start_utc
+            and metadata.get("id") not in included
+        ):
             cache[str(path)] = signature
             continue
         if isinstance(metadata.get("source"), dict) and "subagent" in metadata["source"]:

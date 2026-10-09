@@ -7,25 +7,31 @@ import subprocess
 import sys
 import datetime as dt
 
-from agent_capture import messages, write_log, utc
+from agent_capture import excluded_session_ids, included_session_ids, messages, write_log, utc
 
 root = Path(__file__).resolve().parents[1]
 config = json.loads((root / "agent-capture.json").read_text())
 event = json.load(sys.stdin)
 runtime = root / ".agent-capture"
 runtime.mkdir(exist_ok=True)
-with (runtime / "hook-events.jsonl").open("a", encoding="utf-8") as audit:
-    audit.write(json.dumps({"timestamp": dt.datetime.now(dt.timezone.utc).isoformat(),
-                           "event": event.get("hook_event_name"),
-                           "session_id": event.get("session_id"),
-                           "model": event.get("model")}) + "\n")
+excluded = excluded_session_ids(root)
+if event.get("session_id") in excluded:
+    print("{}")
+    sys.exit(0)
+if event.get("session_id") not in excluded:
+    with (runtime / "hook-events.jsonl").open("a", encoding="utf-8") as audit:
+        audit.write(json.dumps({"timestamp": dt.datetime.now(dt.timezone.utc).isoformat(),
+                               "event": event.get("hook_event_name"),
+                               "session_id": event.get("session_id"),
+                               "model": event.get("model")}) + "\n")
 transcript = event.get("transcript_path")
-if transcript and Path(transcript).is_file():
+if event.get("session_id") not in excluded and transcript and Path(transcript).is_file():
     meta, entries = messages(Path(transcript), Path(config["session_store"]).expanduser().parent / "attachments")
     cwd = Path(meta.get("cwd", "/"))
     source = meta.get("source")
     if (cwd.is_absolute() and (cwd.resolve() == root or root in cwd.resolve().parents)
-            and utc(meta["timestamp"]) >= config["capture_start_utc"]
+            and (utc(meta["timestamp"]) >= config["capture_start_utc"]
+                 or meta.get("id") in included_session_ids(root))
             and not (isinstance(source, dict) and "subagent" in source)):
         write_log(root, config["author"], meta, entries)
 
