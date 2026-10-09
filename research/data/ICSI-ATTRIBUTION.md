@@ -39,9 +39,11 @@ according to the source notes.
   Neutral display labels, Speaker 1 through Speaker 8, were added. Transcriber
   comments were excluded from spoken text. Nonverbal events remain in brackets.
   The source speaker IDs are preserved. Unassigned events remain unassigned.
-- icsi-bmr007-audio.mp3: the complete source audio encoded as a 64 kb/s MP3.
+- [public/audio/icsi-bmr007.mp3](../../public/audio/icsi-bmr007.mp3): the complete
+  source audio encoded as a 64 kb/s MP3.
   Its original mono channel and 16 kHz sample rate were retained. The file is
   approximately 28.8 MB. It can be used without the larger source WAV file.
+  The identical research-folder copy was removed on 10 October 2026.
 
 The source transcripts came from the
 [official transcript archive](https://groups.inf.ed.ac.uk/ami/ICSICorpusAnnotations/ICSI_original_transcripts.zip).
