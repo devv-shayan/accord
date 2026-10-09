@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Accord Meet</title><link rel="stylesheet" href="style.css"></head>
+<body class="popup">
+<header class="popup-header"><div class="brand"><img src="icon.png" alt=""><h1>Accord Meet</h1></div><span id="connection-status" class="connection-status">Connecting…</span></header>
+<main>
+<section id="setup" hidden><p>Connect the extension from Accord’s Record page.</p></section>
+<section id="ready" hidden>
+<p id="call" class="call-title">Open and join a Google Meet call.</p>
+<label class="mic-control"><input type="checkbox" id="include-mic" checked> Include my microphone</label>
+<a id="enable-mic" href="permission.html" target="_blank" class="mic-permission" hidden>Enable microphone</a>
+<button id="start" class="primary full">Start recording</button>
+<p class="recording-notice">Tell everyone before recording.</p>
+</section>
+<section id="active" hidden>
+<p id="active-title" class="call-title"></p>
+<div class="recording-clock"><p id="active-time" class="time"></p><p id="active-status" class="status"></p></div>
+<nav class="transport"><button id="pause">Pause</button><button id="mark">Mark moment</button></nav>
+<button id="stop" class="primary full">Stop and save</button>
+<label class="mic-control"><input type="checkbox" id="mic"> Record my microphone</label>
+<p class="recording-notice">Mute here when you mute in Meet.</p>
+</section>
+<div id="message" role="status"></div>
+<details id="recordings" class="popup-details" hidden><summary id="recordings-label">Saved recordings</summary><p class="muted">Copies on this device. Remove them when you no longer need them.</p><div id="sessions"></div></details>
+</main>
+<footer class="popup-footer">
+<a id="open" target="_blank" hidden>Open Accord <span aria-hidden="true">↗</span></a>
+<details id="connection" class="connection-details" hidden><summary>Connection</summary><div class="connection-menu"><p id="account"></p><button id="disconnect">Disconnect</button></div></details>
+</footer>
+<script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Accord Meet",
+  "version": "0.1.0",
+  "description": "Record a Google Meet call, mark moments, and save private meeting notes in Accord.",
+  "minimum_chrome_version": "116",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuf56XaJNr328a/ChxWZmLz6yhw+j55nBFnepBIBNq41D4qviGUGcnB99WkZQExnAwmFBrG2IHhEop7uGvQeulcrsXQPgCe4V3Lju2lhU/3Ew86fMY5/QFtFbW8JCaGAsHtzaw3b1mezx9iSUM//DRVAwpRjBsqzM3LahDxT7/PJO9ShG08PPcAADDeXgHCKc5BiUpK9ri8yGx8vW4Y9VTP5FwAxSEGPpKd9CiJ55/89r1fx50xwMNbeSTB0TcVBSAnFTlOUPkpz1y65eS8Zy+Xuto06ut4k2baDYHagTAXYwTw/tcqDl04cSQuYsUQFXwN1YSRbXcfm/o0Jiv8LH/QIDAQAB",
+  "permissions": [
+    "activeTab",
+    "tabCapture",
+    "offscreen",
+    "storage",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://meet.google.com/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "background": {
+    "service_worker": "worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Accord Meet",
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://meet.google.com/*"
+      ],
+      "js": [
+        "meet.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://*/*",
+      "http://localhost/*",
+      "http://127.0.0.1/*"
+    ]
+  }
+}

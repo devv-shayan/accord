@@ -1,0 +1,44 @@
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;background:#14161a;color:#f2f1ed}*{box-sizing:border-box}body{margin:0;padding:20px;min-width:340px}body.page{max-width:580px;margin:40px auto;min-width:0}h1{font-size:20px;letter-spacing:-.5px;margin:0 0 12px}h2{font-size:14px;margin:20px 0 10px}p{font-size:13px;line-height:1.6;color:#bcbec4;margin:8px 0}a{color:#ebc273;text-underline-offset:3px}button,a.button{font:inherit;font-size:13px;font-weight:600;border:1px solid #494d55;border-radius:7px;color:#f2f1ed;background:#2a2d33;padding:9px 12px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}button.primary,a.primary{background:#edc36d;border-color:#edc36d;color:#1c1b16}button:disabled{opacity:.45;cursor:wait}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #edc36d;outline-offset:3px}nav,.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}label{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:13px}input{accent-color:#edc36d}hr{border:0;border-top:1px solid #34373d;margin:20px 0}.card{border-top:1px solid #34373d;padding:12px 0}.time{font-family:ui-monospace,monospace;color:#edc36d;font-size:24px;margin:8px 0}.error{color:#ffb4a8;white-space:pre-wrap}.muted{color:#a9adb6;font-size:12px}.hidden,[hidden]{display:none!important}.brand{display:flex;align-items:center;gap:9px;margin-bottom:16px}.brand img{width:26px;height:26px}#message{min-height:20px;font-size:12px;margin-top:12px;line-height:1.6}.status{color:#edc36d}.origin{overflow-wrap:anywhere}.full{width:100%}
+
+/* The popup puts capture first; stored audio and account controls are disclosures. */
+body.popup{width:340px;min-width:340px;padding:18px}
+.popup-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}
+.popup-header .brand{margin:0;gap:8px}
+.popup-header h1{font-size:16px;margin:0;letter-spacing:-.3px}
+.popup-header .brand img{width:24px;height:24px}
+.connection-status{font-size:11px;color:#a9adb6;white-space:nowrap}
+.connection-status.connected::before{content:"";display:inline-block;width:5px;height:5px;margin-right:5px;border-radius:50%;background:#a8c4a1;vertical-align:2px}
+.popup .call-title{font-size:15px;line-height:1.4;color:#f2f1ed;margin:0 0 18px;overflow-wrap:anywhere}
+.popup .mic-control{margin:0 0 16px;gap:9px}
+.popup .mic-control input{width:15px;height:15px;margin:0}
+.mic-permission{display:block;margin:-7px 0 16px 24px;font-size:12px}
+.popup .primary.full{min-height:43px}
+.popup .recording-notice{font-size:11px;color:#a9adb6;line-height:1.4;margin:9px 0 0}
+.popup #message{min-height:0;margin:0}
+.popup #message:not(:empty){margin-top:12px}
+.recording-clock{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 16px}
+.popup .time{font-size:32px;line-height:1;margin:0;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.popup .status{margin:0;font-size:12px}
+.popup .transport{display:grid;grid-template-columns:1fr 1fr;margin:0 0 8px}
+.popup #active .mic-control{margin:16px 0 0}
+.popup-details{border-top:1px solid #34373d;margin-top:20px;padding-top:14px}
+.popup summary{font-size:12px;cursor:pointer;color:#bcbec4;line-height:1.5}
+.popup summary:focus-visible{outline:2px solid #edc36d;outline-offset:4px;border-radius:2px}
+.popup-details[open]>summary{color:#f2f1ed;margin-bottom:12px}
+.popup .card p{margin:0 0 6px}
+.popup .card nav{margin-top:8px;gap:6px}
+.popup .card button,.popup .card a.button{font-size:11px;padding:7px 9px}
+.popup-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #34373d;margin-top:16px;padding-top:13px}
+.popup-footer>a{font-size:12px;text-decoration:none;color:#bcbec4}
+.popup-footer>a:hover{color:#edc36d}
+.connection-details{position:relative}
+.connection-details summary{list-style:none}
+.connection-details summary::-webkit-details-marker{display:none}
+.connection-details[open]>summary{color:#edc36d}
+.connection-menu{margin-top:10px;width:190px}
+.connection-menu p{font-size:11px;overflow-wrap:anywhere;margin-top:0}
+.connection-menu button{padding:7px 10px;font-size:12px}
+.popup-footer:has(.connection-details[open]){align-items:flex-start}
+.popup-footer:has(.connection-details[open])>a{padding-top:2px}
+.popup summary.upload-needed{color:#edc36d}
+.popup-footer:has(#open[hidden]){display:none}
